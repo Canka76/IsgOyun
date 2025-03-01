@@ -9,6 +9,7 @@ public class QuizManager : MonoBehaviour
     public TMP_Text zamanlayiciText;
     public Image healthBarP1;
     public Image healthBarP2;
+    public GameObject timeBar;
     
     public Animator player1Animator; // Player 1 Animator
     public Animator player2Animator; // Player 2 Animator
@@ -33,6 +34,9 @@ public class QuizManager : MonoBehaviour
             kalanSure -= Time.deltaTime;
             zamanlayiciText.text = "Süre: " + Mathf.Ceil(kalanSure);
 
+            // Update the time bar scale dynamically
+            timeBar.transform.localScale = new Vector3(kalanSure / 10f, 1, 1);
+
             if (kalanSure <= 0)
             {
                 zamanBitti = true;
@@ -42,6 +46,7 @@ public class QuizManager : MonoBehaviour
 
         KlavyeGirisKontrol();
     }
+
 
     void KlavyeGirisKontrol()
     {
@@ -95,24 +100,35 @@ public class QuizManager : MonoBehaviour
 
         if (oyuncu == 1 && !p1CevapVerdi)
         {
-            PlayAnimation(player1Animator); // Play animation for Player 1
-            
-            if (dogruMu) 
+            PlayAnimation(player1Animator);
+
+            if (dogruMu)
             {
                 healthP2 -= 10;
                 LeanTween.scaleX(healthBarP2.gameObject, healthP2 / 100f, 0.5f).setEase(LeanTweenType.easeOutBounce);
+                if (!p2CevapVerdi)
+                {
+                    MoveTimeBarToNextSection(); // Move the timer forward
+                }
             }
+            
             p1CevapVerdi = true;
         }
+
         if (oyuncu == 2 && !p2CevapVerdi)
         {
-            PlayAnimation(player2Animator); // Play animation for Player 2
-            
-            if (dogruMu) 
+            PlayAnimation(player2Animator);
+
+            if (dogruMu)
             {
                 healthP1 -= 10;
                 LeanTween.scaleX(healthBarP1.gameObject, healthP1 / 100f, 0.5f).setEase(LeanTweenType.easeOutBounce);
+                if (!p1CevapVerdi)
+                {
+                    MoveTimeBarToNextSection(); // Move the timer forward
+                }
             }
+            
             p2CevapVerdi = true;
         }
 
@@ -121,6 +137,7 @@ public class QuizManager : MonoBehaviour
             Debug.Log("Oyun Bitti!");
         }
     }
+
 
     void PlayAnimation(Animator playerAnimator)
     {
@@ -141,6 +158,26 @@ public class QuizManager : MonoBehaviour
         if (player2Animator != null)
             player2Animator.SetFloat("Anim", 0);
     }
+    
+    void MoveTimeBarToNextSection()
+    {
+        float sectionLength = 10f / 3f; // Divide total time by 3
+        float elapsedTime = 10f - kalanSure; // Time already passed
+
+        // Move to the next section
+        if (elapsedTime < sectionLength)
+            kalanSure = 10f - sectionLength;
+        else if (elapsedTime < 2 * sectionLength)
+            kalanSure = 10f - 2 * sectionLength;
+        else
+            kalanSure = 0; // Move to the end
+
+        // Smoothly adjust the time bar
+        float newScaleX = kalanSure / 10f;
+        LeanTween.cancel(timeBar);
+        LeanTween.scaleX(timeBar, newScaleX, 0.3f).setEase(LeanTweenType.easeOutQuad);
+    }
+
 
 
 
