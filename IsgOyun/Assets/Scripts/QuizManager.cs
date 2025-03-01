@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -7,46 +6,118 @@ public class QuizManager : MonoBehaviour
 {
     public SoruListesi soruListesi;
     public TMP_Text soruText;
-    public TMP_Text skorText;
-    public Button[] secenekButonlari;
+    public TMP_Text zamanlayiciText;
+    public Image healthBarP1;
+    public Image healthBarP2;
 
     private int mevcutSoruIndex = 0;
-    private int skor = 0;
+    private int healthP1 = 100;
+    private int healthP2 = 100;
+    private bool p1CevapVerdi = false;
+    private bool p2CevapVerdi = false;
+    private float kalanSure = 10f;
+    private bool zamanBitti = false;
 
     void Start()
     {
         YeniSoruGetir();
     }
 
+    void Update()
+    {
+        if (!zamanBitti)
+        {
+            kalanSure -= Time.deltaTime;
+            zamanlayiciText.text = "Süre: " + Mathf.Ceil(kalanSure);
+
+            if (kalanSure <= 0)
+            {
+                zamanBitti = true;
+                SonrakiSoru();
+            }
+        }
+
+        KlavyeGirisKontrol();
+    }
+
+    void KlavyeGirisKontrol()
+    {
+        if (!p1CevapVerdi)
+        {
+            if (Input.GetKeyDown(KeyCode.W)) CevapKontrol(0, 1);
+            if (Input.GetKeyDown(KeyCode.A)) CevapKontrol(1, 1);
+            if (Input.GetKeyDown(KeyCode.S)) CevapKontrol(2, 1);
+            if (Input.GetKeyDown(KeyCode.D)) CevapKontrol(3, 1);
+        }
+
+        if (!p2CevapVerdi)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1)) CevapKontrol(0, 2);
+            if (Input.GetKeyDown(KeyCode.Alpha2)) CevapKontrol(1, 2);
+            if (Input.GetKeyDown(KeyCode.Alpha3)) CevapKontrol(2, 2);
+            if (Input.GetKeyDown(KeyCode.Alpha4)) CevapKontrol(3, 2);
+        }
+
+        // If both players answered, change question immediately
+        if (p1CevapVerdi && p2CevapVerdi)
+        {
+            SonrakiSoru();
+        }
+    }
+
     void YeniSoruGetir()
     {
-        if (mevcutSoruIndex >= soruListesi.sorular.Count)
+        if (healthP1 <= 0 || healthP2 <= 0)
         {
             Debug.Log("Oyun Bitti!");
             return;
         }
 
+        if (mevcutSoruIndex >= soruListesi.sorular.Count)
+        {
+            Debug.Log("Tüm Sorular Bitti!");
+            return;
+        }
+
         Soru aktifSoru = soruListesi.sorular[mevcutSoruIndex];
         soruText.text = aktifSoru.soruMetni;
+        p1CevapVerdi = false;
+        p2CevapVerdi = false;
+        zamanBitti = false;
+        kalanSure = 10f;
+    }
 
-        for (int i = 0; i < secenekButonlari.Length; i++)
+    void CevapKontrol(int secilenIndex, int oyuncu)
+    {
+        bool dogruMu = secilenIndex == soruListesi.sorular[mevcutSoruIndex].dogruCevapIndex;
+
+        if (oyuncu == 1 && !p1CevapVerdi)
         {
-            secenekButonlari[i].GetComponentInChildren<TMP_Text>().text = aktifSoru.secenekler[i];
+            if (dogruMu) 
+            {
+                healthP2 -= 10;
+                LeanTween.scaleX(healthBarP2.gameObject, healthP2 / 100f, 0.5f).setEase(LeanTweenType.easeOutBounce);
+            }
+            p1CevapVerdi = true;
+        }
+        else if (oyuncu == 2 && !p2CevapVerdi)
+        {
+            if (dogruMu) 
+            {
+                healthP1 -= 10;
+                LeanTween.scaleX(healthBarP1.gameObject, healthP1 / 100f, 0.5f).setEase(LeanTweenType.easeOutBounce);
+            }
+            p2CevapVerdi = true;
+        }
 
-            int index = i;  
-            secenekButonlari[i].onClick.RemoveAllListeners();
-            secenekButonlari[i].onClick.AddListener(() => CevapKontrol(index));
+        if (healthP1 <= 0 || healthP2 <= 0)
+        {
+            Debug.Log("Oyun Bitti!");
         }
     }
 
-    void CevapKontrol(int secilenIndex)
+    void SonrakiSoru()
     {
-        if (secilenIndex == soruListesi.sorular[mevcutSoruIndex].dogruCevapIndex)
-        {
-            skor += 10;
-        }
-
-        skorText.text = "Skor: " + skor;
         mevcutSoruIndex++;
         YeniSoruGetir();
     }
