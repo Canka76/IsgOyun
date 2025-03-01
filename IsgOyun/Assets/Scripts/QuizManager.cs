@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -16,6 +17,10 @@ public class QuizManager : MonoBehaviour
     public Animator player2Animator; // Player 2 Animator
 
     [SerializeField] private float damageAmount = 10f;
+    [SerializeField,Range(0,1)] private float P1AnimSoundDelay = .55f;
+    [SerializeField,Range(0,1)] private float P2AnimSoundDelay = .65f;
+
+
     private int mevcutSoruIndex = 0;
     private int healthP1 = 100;
     private int healthP2 = 100;
@@ -23,9 +28,11 @@ public class QuizManager : MonoBehaviour
     private bool p2CevapVerdi = false;
     private float kalanSure = 10f;
     private bool zamanBitti = false;
+    
 
     void Start()
     {
+        SoundManager.Instance.RandomMusic();
         YeniSoruGetir();
     }
 
@@ -48,6 +55,9 @@ public class QuizManager : MonoBehaviour
 
         KlavyeGirisKontrol();
     }
+
+    
+    
 
 
     void KlavyeGirisKontrol()
@@ -132,7 +142,8 @@ public class QuizManager : MonoBehaviour
 
             int damage = Mathf.RoundToInt(damageAmount * damageMultiplier);
             healthP2 -= damage;
-            LeanTween.scaleX(healthBarP2.gameObject, healthP2 / 100f, 0.5f).setEase(LeanTweenType.easeOutBounce);
+            LeanTween.scaleX(healthBarP2.gameObject, healthP2 / 100f, 0.5f).setEase(LeanTweenType.easeOutElastic);
+            StartCoroutine(PlaySfxAfterDelay(P1AnimSoundDelay));
 
             if (!p2CevapVerdi)
             {
@@ -149,6 +160,8 @@ public class QuizManager : MonoBehaviour
             int damage = Mathf.RoundToInt(damageAmount * damageMultiplier);
             healthP1 -= damage;
             LeanTween.scaleX(healthBarP1.gameObject, healthP1 / 100f, 0.5f).setEase(LeanTweenType.easeOutBounce);
+            StartCoroutine(PlaySfxAfterDelay(P2AnimSoundDelay));
+
 
             if (!p1CevapVerdi)
             {
@@ -177,6 +190,11 @@ public class QuizManager : MonoBehaviour
         }
     }
 }
+    private IEnumerator PlaySfxAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SoundManager.Instance.RandomSfx(); // Change index as needed
+    }
 
 
     void PlayAnimation(Animator playerAnimator)
@@ -226,4 +244,4 @@ public class QuizManager : MonoBehaviour
         mevcutSoruIndex++;
         YeniSoruGetir();
     }
-}
+}    
