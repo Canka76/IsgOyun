@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: ab1dea0747e10b94384bfe26cfbc56e0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249458
+  packageName: UI 23 - Comic Menu
+  packageVersion: 1.0
+  assetPath: Assets/ComicArtUI/Script/UI/Shapes/StripesShapeAnim.cs
+  uploadId: 570138
