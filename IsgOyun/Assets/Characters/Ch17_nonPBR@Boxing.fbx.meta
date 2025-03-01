@@ -3,7 +3,37 @@ guid: 7e715b316fa70944bb4e170bc7a51d0e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch17_1001_Diffuse
+    second: {fileID: 2800000, guid: ef2ec354b625ed740804c53baa4e9fcc, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch17_1001_Glossiness
+    second: {fileID: 2800000, guid: 67c7903d9aed61a488198a4fe9c63b58, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch17_1001_Normal
+    second: {fileID: 2800000, guid: b0cb8d7d06fb01f4094f83b58830d6e2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch17_1001_Specular
+    second: {fileID: 2800000, guid: 525e36a1d5080e545b65dea25a5208d3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch17_1002_Diffuse
+    second: {fileID: 2800000, guid: f94bfe632aa1b6141b5f32a722b814ae, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch17_1002_Normal
+    second: {fileID: 2800000, guid: 371340b5fe0c18942aaddbbfa5b89ecf, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -97,7 +127,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0

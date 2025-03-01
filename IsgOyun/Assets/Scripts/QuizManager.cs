@@ -104,7 +104,7 @@ public class QuizManager : MonoBehaviour
             }
             p1CevapVerdi = true;
         }
-        else if (oyuncu == 2 && !p2CevapVerdi)
+        if (oyuncu == 2 && !p2CevapVerdi)
         {
             PlayAnimation(player2Animator); // Play animation for Player 2
             
@@ -126,16 +126,23 @@ public class QuizManager : MonoBehaviour
     {
         if (playerAnimator != null)
         {
-            playerAnimator.SetTrigger("GuessAnim");
-            Invoke(nameof(ResetToIdle), 1.5f); // Return to idle after animation
+            playerAnimator.SetFloat("Anim", 1);
+            Invoke(nameof(ResetToIdle), 1.5f);
+            Debug.Log("Play animation");
         }
     }
 
     void ResetToIdle()
     {
-        player1Animator.SetTrigger("Idle");
-        player2Animator.SetTrigger("Idle");
+        Debug.Log("reset to idle");
+        if (player1Animator != null)
+            player1Animator.SetFloat("Anim", 0);
+    
+        if (player2Animator != null)
+            player2Animator.SetFloat("Anim", 0);
     }
+
+
 
     void SonrakiSoru()
     {
