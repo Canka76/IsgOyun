@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Serialization;
 
 public class QuizManager : MonoBehaviour
 {
@@ -10,10 +11,11 @@ public class QuizManager : MonoBehaviour
     public Image healthBarP1;
     public Image healthBarP2;
     public GameObject timeBar;
-    
+    public Button[] secenekButonlari;    
     public Animator player1Animator; // Player 1 Animator
     public Animator player2Animator; // Player 2 Animator
 
+    [SerializeField] private float damageAmount = 10f;
     private int mevcutSoruIndex = 0;
     private int healthP1 = 100;
     private int healthP2 = 100;
@@ -88,6 +90,12 @@ public class QuizManager : MonoBehaviour
 
         Soru aktifSoru = soruListesi.sorular[mevcutSoruIndex];
         soruText.text = aktifSoru.soruMetni;
+        for (int i = 0; i < secenekButonlari.Length; i++) 
+        {
+            secenekButonlari[i].GetComponentInChildren<TMP_Text>().text = aktifSoru.secenekler[i];
+                
+        }
+        
         p1CevapVerdi = false;
         p2CevapVerdi = false;
         zamanBitti = false;
@@ -95,23 +103,42 @@ public class QuizManager : MonoBehaviour
     }
 
     void CevapKontrol(int secilenIndex, int oyuncu)
+{
+    bool dogruMu = secilenIndex == soruListesi.sorular[mevcutSoruIndex].dogruCevapIndex;
+
+    if (dogruMu)
     {
-        bool dogruMu = secilenIndex == soruListesi.sorular[mevcutSoruIndex].dogruCevapIndex;
+        float sectionLength = 10f / 3f; // Divide total time by 3
+        float elapsedTime = 10f - kalanSure; // Time already passed
+
+        float damageMultiplier = 1f;
+
+        if (elapsedTime < sectionLength)
+        {
+            damageMultiplier = 2f; // First third: double damage
+        }
+        else if (elapsedTime < 2 * sectionLength)
+        {
+            damageMultiplier = 1f; // Second third: normal damage
+        }
+        else
+        {
+            damageMultiplier = 0.5f; // Last third: half damage
+        }
 
         if (oyuncu == 1 && !p1CevapVerdi)
         {
             PlayAnimation(player1Animator);
 
-            if (dogruMu)
+            int damage = Mathf.RoundToInt(damageAmount * damageMultiplier);
+            healthP2 -= damage;
+            LeanTween.scaleX(healthBarP2.gameObject, healthP2 / 100f, 0.5f).setEase(LeanTweenType.easeOutBounce);
+
+            if (!p2CevapVerdi)
             {
-                healthP2 -= 10;
-                LeanTween.scaleX(healthBarP2.gameObject, healthP2 / 100f, 0.5f).setEase(LeanTweenType.easeOutBounce);
-                if (!p2CevapVerdi)
-                {
-                    MoveTimeBarToNextSection(); // Move the timer forward
-                }
+                MoveTimeBarToNextSection(); // Move the timer forward
             }
-            
+
             p1CevapVerdi = true;
         }
 
@@ -119,16 +146,15 @@ public class QuizManager : MonoBehaviour
         {
             PlayAnimation(player2Animator);
 
-            if (dogruMu)
+            int damage = Mathf.RoundToInt(damageAmount * damageMultiplier);
+            healthP1 -= damage;
+            LeanTween.scaleX(healthBarP1.gameObject, healthP1 / 100f, 0.5f).setEase(LeanTweenType.easeOutBounce);
+
+            if (!p1CevapVerdi)
             {
-                healthP1 -= 10;
-                LeanTween.scaleX(healthBarP1.gameObject, healthP1 / 100f, 0.5f).setEase(LeanTweenType.easeOutBounce);
-                if (!p1CevapVerdi)
-                {
-                    MoveTimeBarToNextSection(); // Move the timer forward
-                }
+                MoveTimeBarToNextSection(); // Move the timer forward
             }
-            
+
             p2CevapVerdi = true;
         }
 
@@ -137,6 +163,20 @@ public class QuizManager : MonoBehaviour
             Debug.Log("Oyun Bitti!");
         }
     }
+    else
+    {
+        // Handle incorrect answers if needed
+        if (oyuncu == 1 && !p1CevapVerdi)
+        {
+            p1CevapVerdi = true;
+        }
+
+        if (oyuncu == 2 && !p2CevapVerdi)
+        {
+            p2CevapVerdi = true;
+        }
+    }
+}
 
 
     void PlayAnimation(Animator playerAnimator)
