@@ -12,4 +12,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6da28ec0a1e2c05448c77acf71db547d, type: 3}
   m_Name: YeniSoruListesi
   m_EditorClassIdentifier: 
-  sorular: []
+  sorular:
+  - soruMetni: bu bir soru mu?
+    secenekler:
+    - "hay\u0131r"
+    - evet
+    - "fener \u015Fampi"
+    - gayim
+    dogruCevapIndex: 1
+  - soruMetni: bu bir soru mu?
+    secenekler:
+    - "hay\u0131r"
+    - evet
+    - "fener \u015Fampi"
+    - gayim
+    dogruCevapIndex: 1
+  - soruMetni: bu bir soru mu?
+    secenekler:
+    - "hay\u0131r"
+    - evet
+    - "fener \u015Fampi"
+    - gayim
+    dogruCevapIndex: 1
+  - soruMetni: bu bir soru mu?
+    secenekler:
+    - "hay\u0131r"
+    - evet
+    - "fener \u015Fampi"
+    - gayim
+    dogruCevapIndex: 1
+  - soruMetni: bu bir soru mu?
+    secenekler:
+    - "hay\u0131r"
+    - evet
+    - "fener \u015Fampi"
+    - gayim
+    dogruCevapIndex: 1
