@@ -9,6 +9,9 @@ public class QuizManager : MonoBehaviour
     public TMP_Text zamanlayiciText;
     public Image healthBarP1;
     public Image healthBarP2;
+    
+    public Animator player1Animator; // Player 1 Animator
+    public Animator player2Animator; // Player 2 Animator
 
     private int mevcutSoruIndex = 0;
     private int healthP1 = 100;
@@ -58,7 +61,6 @@ public class QuizManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Alpha4)) CevapKontrol(3, 2);
         }
 
-        // If both players answered, change question immediately
         if (p1CevapVerdi && p2CevapVerdi)
         {
             SonrakiSoru();
@@ -93,6 +95,8 @@ public class QuizManager : MonoBehaviour
 
         if (oyuncu == 1 && !p1CevapVerdi)
         {
+            PlayAnimation(player1Animator); // Play animation for Player 1
+            
             if (dogruMu) 
             {
                 healthP2 -= 10;
@@ -102,6 +106,8 @@ public class QuizManager : MonoBehaviour
         }
         else if (oyuncu == 2 && !p2CevapVerdi)
         {
+            PlayAnimation(player2Animator); // Play animation for Player 2
+            
             if (dogruMu) 
             {
                 healthP1 -= 10;
@@ -114,6 +120,21 @@ public class QuizManager : MonoBehaviour
         {
             Debug.Log("Oyun Bitti!");
         }
+    }
+
+    void PlayAnimation(Animator playerAnimator)
+    {
+        if (playerAnimator != null)
+        {
+            playerAnimator.SetTrigger("GuessAnim");
+            Invoke(nameof(ResetToIdle), 1.5f); // Return to idle after animation
+        }
+    }
+
+    void ResetToIdle()
+    {
+        player1Animator.SetTrigger("Idle");
+        player2Animator.SetTrigger("Idle");
     }
 
     void SonrakiSoru()
