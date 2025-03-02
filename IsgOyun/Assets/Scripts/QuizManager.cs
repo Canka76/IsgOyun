@@ -168,7 +168,7 @@ public class QuizManager : MonoBehaviour
     {
         if (playerAnimator != null)
         {
-            playerAnimator.SetTrigger("Dance"); // Make sure your animator has a "Death" trigger
+            playerAnimator.SetTrigger("Dance"); 
             Debug.Log("Player Danced!");
         }
 
