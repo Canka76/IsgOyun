@@ -13,6 +13,76 @@ MonoBehaviour:
   m_Name: YeniSoruListesi
   m_EditorClassIdentifier: 
   sorular:
+  - soruMetni: bu bir soru mu? 1
+    secenekler:
+    - "hay\u0131r"
+    - evet
+    - "fener \u015Fampi"
+    - gayim
+    dogruCevapIndex: 1
+  - soruMetni: bu bir soru mu? 2
+    secenekler:
+    - "hay\u0131r"
+    - evet
+    - "fener \u015Fampi"
+    - gayim
+    dogruCevapIndex: 1
+  - soruMetni: bu bir soru mu? 3
+    secenekler:
+    - "hay\u0131r"
+    - evet
+    - "fener \u015Fampi"
+    - gayim
+    dogruCevapIndex: 1
+  - soruMetni: bu bir soru mu?
+    secenekler:
+    - "hay\u0131r"
+    - evet
+    - "fener \u015Fampi"
+    - gayim
+    dogruCevapIndex: 1
+  - soruMetni: bu bir soru mu?
+    secenekler:
+    - "hay\u0131r"
+    - evet
+    - "fener \u015Fampi"
+    - gayim
+    dogruCevapIndex: 1
+  - soruMetni: bu bir soru mu?
+    secenekler:
+    - "hay\u0131r"
+    - evet
+    - "fener \u015Fampi"
+    - gayim
+    dogruCevapIndex: 1
+  - soruMetni: bu bir soru mu?
+    secenekler:
+    - "hay\u0131r"
+    - evet
+    - "fener \u015Fampi"
+    - gayim
+    dogruCevapIndex: 1
+  - soruMetni: bu bir soru mu?
+    secenekler:
+    - "hay\u0131r"
+    - evet
+    - "fener \u015Fampi"
+    - gayim
+    dogruCevapIndex: 1
+  - soruMetni: bu bir soru mu?
+    secenekler:
+    - "hay\u0131r"
+    - evet
+    - "fener \u015Fampi"
+    - gayim
+    dogruCevapIndex: 1
+  - soruMetni: bu bir soru mu?
+    secenekler:
+    - "hay\u0131r"
+    - evet
+    - "fener \u015Fampi"
+    - gayim
+    dogruCevapIndex: 1
   - soruMetni: bu bir soru mu?
     secenekler:
     - "hay\u0131r"

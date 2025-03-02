@@ -92,25 +92,23 @@ public class QuizManager : MonoBehaviour
             return;
         }
 
-        if (mevcutSoruIndex >= soruListesi.sorular.Count)
-        {
-            Debug.Log("Tüm Sorular Bitti!");
-            return;
-        }
+        // Pick a random question index
+        int randomIndex = Random.Range(0, soruListesi.sorular.Count);
 
-        Soru aktifSoru = soruListesi.sorular[mevcutSoruIndex];
+        Soru aktifSoru = soruListesi.sorular[randomIndex];
         soruText.text = aktifSoru.soruMetni;
-        for (int i = 0; i < secenekButonlari.Length; i++) 
+
+        for (int i = 0; i < secenekButonlari.Length; i++)
         {
             secenekButonlari[i].GetComponentInChildren<TMP_Text>().text = aktifSoru.secenekler[i];
-                
         }
-        
+
         p1CevapVerdi = false;
         p2CevapVerdi = false;
         zamanBitti = false;
         kalanSure = 10f;
     }
+
 
     void CevapKontrol(int secilenIndex, int oyuncu)
 {
@@ -120,76 +118,63 @@ public class QuizManager : MonoBehaviour
     {
         float sectionLength = 10f / 3f; // Divide total time by 3
         float elapsedTime = 10f - kalanSure; // Time already passed
+        float damageMultiplier = (elapsedTime < sectionLength) ? 2f : (elapsedTime < 2 * sectionLength) ? 1f : 0.5f;
 
-        float damageMultiplier = 1f;
-
-        if (elapsedTime < sectionLength)
-        {
-            damageMultiplier = 2f; // First third: double damage
-        }
-        else if (elapsedTime < 2 * sectionLength)
-        {
-            damageMultiplier = 1f; // Second third: normal damage
-        }
-        else
-        {
-            damageMultiplier = 0.5f; // Last third: half damage
-        }
+        int damage = Mathf.RoundToInt(damageAmount * damageMultiplier);
 
         if (oyuncu == 1 && !p1CevapVerdi)
         {
             PlayAnimation(player1Animator);
-
-            int damage = Mathf.RoundToInt(damageAmount * damageMultiplier);
             healthP2 -= damage;
             LeanTween.scaleX(healthBarP2.gameObject, healthP2 / 100f, 0.5f).setEase(LeanTweenType.easeOutElastic);
             StartCoroutine(PlaySfxAfterDelay(P1AnimSoundDelay));
 
-            if (!p2CevapVerdi)
+            if (healthP2 <= 0)
             {
-                MoveTimeBarToNextSection(); // Move the timer forward
+                TriggerDeathAnimation(player2Animator);
+                return;
             }
 
+            if (!p2CevapVerdi) MoveTimeBarToNextSection();
             p1CevapVerdi = true;
         }
 
         if (oyuncu == 2 && !p2CevapVerdi)
         {
             PlayAnimation(player2Animator);
-
-            int damage = Mathf.RoundToInt(damageAmount * damageMultiplier);
             healthP1 -= damage;
             LeanTween.scaleX(healthBarP1.gameObject, healthP1 / 100f, 0.5f).setEase(LeanTweenType.easeOutBounce);
             StartCoroutine(PlaySfxAfterDelay(P2AnimSoundDelay));
 
-
-            if (!p1CevapVerdi)
+            if (healthP1 <= 0)
             {
-                MoveTimeBarToNextSection(); // Move the timer forward
+                TriggerDeathAnimation(player1Animator);
+                return;
             }
 
+            if (!p1CevapVerdi) MoveTimeBarToNextSection();
             p2CevapVerdi = true;
-        }
-
-        if (healthP1 <= 0 || healthP2 <= 0)
-        {
-            Debug.Log("Oyun Bitti!");
         }
     }
     else
     {
-        // Handle incorrect answers if needed
-        if (oyuncu == 1 && !p1CevapVerdi)
-        {
-            p1CevapVerdi = true;
-        }
-
-        if (oyuncu == 2 && !p2CevapVerdi)
-        {
-            p2CevapVerdi = true;
-        }
+        if (oyuncu == 1 && !p1CevapVerdi) p1CevapVerdi = true;
+        if (oyuncu == 2 && !p2CevapVerdi) p2CevapVerdi = true;
     }
 }
+
+void TriggerDeathAnimation(Animator playerAnimator)
+{
+    if (playerAnimator != null)
+    {
+        playerAnimator.SetTrigger("Death"); // Make sure your animator has a "Death" trigger
+        Debug.Log("Player Died!");
+    }
+
+    // Stop further input and actions
+    enabled = false;
+}
+
     private IEnumerator PlaySfxAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
