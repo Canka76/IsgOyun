@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:IsgOyun/Assets/Images/is-sagligi-ve-guvenligi-nedir.png.meta
-guid: 23f59a0d259a7a241b795a15e230a58f
+<<<<<<<< HEAD:IsgOyun/Assets/Images/craiyon_025201__Draw_a_man_a_yellow_construction_helmet_at_a_construction_site__.png.meta
+guid: dcd3f6a970762704d83b013d96b3f7a3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
 ========
-guid: dfc991177984b4d3db605db9d3001f68
+guid: adb1725a8503349429bf8d113eadac67
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
->>>>>>>> main:IsgOyun/Assets/LeanTween/Examples/Textures/HorizontalGradient.png.meta
+>>>>>>>> main:IsgOyun/Assets/LeanTween/Examples/Textures/DefaultParticleReplacement.png.meta
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
@@ -45,7 +45,7 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-<<<<<<<< HEAD:IsgOyun/Assets/Images/is-sagligi-ve-guvenligi-nedir.png.meta
+<<<<<<<< HEAD:IsgOyun/Assets/Images/craiyon_025201__Draw_a_man_a_yellow_construction_helmet_at_a_construction_site__.png.meta
     wrapU: 1
     wrapV: 1
     wrapW: 0
@@ -55,7 +55,7 @@ TextureImporter:
     wrapV: 0
     wrapW: 0
   nPOTScale: 1
->>>>>>>> main:IsgOyun/Assets/LeanTween/Examples/Textures/HorizontalGradient.png.meta
+>>>>>>>> main:IsgOyun/Assets/LeanTween/Examples/Textures/DefaultParticleReplacement.png.meta
   lightmap: 0
   compressionQuality: 50
   spriteMode: 0
@@ -80,10 +80,10 @@ TextureImporter:
   ignorePngGamma: 1
   applyGammaDecoding: 0
   swizzle: 50462976
-<<<<<<<< HEAD:IsgOyun/Assets/Images/is-sagligi-ve-guvenligi-nedir.png.meta
+<<<<<<<< HEAD:IsgOyun/Assets/Images/craiyon_025201__Draw_a_man_a_yellow_construction_helmet_at_a_construction_site__.png.meta
   cookieLightType: 0
 ========
->>>>>>>> main:IsgOyun/Assets/LeanTween/Examples/Textures/HorizontalGradient.png.meta
+>>>>>>>> main:IsgOyun/Assets/LeanTween/Examples/Textures/DefaultParticleReplacement.png.meta
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
@@ -108,7 +108,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-<<<<<<<< HEAD:IsgOyun/Assets/Images/is-sagligi-ve-guvenligi-nedir.png.meta
+<<<<<<<< HEAD:IsgOyun/Assets/Images/craiyon_025201__Draw_a_man_a_yellow_construction_helmet_at_a_construction_site__.png.meta
     ignorePlatformSupport: 0
 ========
     androidETC2FallbackOverride: 0
@@ -123,7 +123,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
->>>>>>>> main:IsgOyun/Assets/LeanTween/Examples/Textures/HorizontalGradient.png.meta
+>>>>>>>> main:IsgOyun/Assets/LeanTween/Examples/Textures/DefaultParticleReplacement.png.meta
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -148,13 +148,13 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-<<<<<<<< HEAD:IsgOyun/Assets/Images/is-sagligi-ve-guvenligi-nedir.png.meta
+<<<<<<<< HEAD:IsgOyun/Assets/Images/craiyon_025201__Draw_a_man_a_yellow_construction_helmet_at_a_construction_site__.png.meta
 ========
 AssetOrigin:
   serializedVersion: 1
   productId: 3595
   packageName: LeanTween
   packageVersion: 2.51
-  assetPath: Assets/LeanTween/Examples/Textures/HorizontalGradient.png
+  assetPath: Assets/LeanTween/Examples/Textures/DefaultParticleReplacement.png
   uploadId: 469983
->>>>>>>> main:IsgOyun/Assets/LeanTween/Examples/Textures/HorizontalGradient.png.meta
+>>>>>>>> main:IsgOyun/Assets/LeanTween/Examples/Textures/DefaultParticleReplacement.png.meta

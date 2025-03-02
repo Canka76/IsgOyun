@@ -1,20 +1,20 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:IsgOyun/Assets/Images/is-sagligi-ve-guvenligi-nedir.png.meta
-guid: 23f59a0d259a7a241b795a15e230a58f
+<<<<<<<< HEAD:IsgOyun/Assets/Images/İş-Sağliği-ve-Güvenliğinde-İnsan-Kaynaklari-Yönetimi@2x.jpg.meta
+guid: 051788f4582f70b4cb19ee72a8d3b17f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
 ========
-guid: dfc991177984b4d3db605db9d3001f68
+guid: 70141d51621e24facbca9196bbde84b4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
->>>>>>>> main:IsgOyun/Assets/LeanTween/Examples/Textures/HorizontalGradient.png.meta
+  serializedVersion: 10
+>>>>>>>> main:IsgOyun/Assets/LeanTween/Examples/Textures/PowerUpStar.png.meta
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -32,8 +32,11 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+<<<<<<<< HEAD:IsgOyun/Assets/Images/İş-Sağliği-ve-Güvenliğinde-İnsan-Kaynaklari-Yönetimi@2x.jpg.meta
   vTOnly: 0
   ignoreMipmapLimit: 0
+========
+>>>>>>>> main:IsgOyun/Assets/LeanTween/Examples/Textures/PowerUpStar.png.meta
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -42,23 +45,16 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
-    aniso: 1
-    mipBias: 0
-<<<<<<<< HEAD:IsgOyun/Assets/Images/is-sagligi-ve-guvenligi-nedir.png.meta
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 0
   nPOTScale: 0
-========
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
-  nPOTScale: 1
->>>>>>>> main:IsgOyun/Assets/LeanTween/Examples/Textures/HorizontalGradient.png.meta
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -67,23 +63,21 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
-  flipbookRows: 1
-  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
-  ignorePngGamma: 1
+<<<<<<<< HEAD:IsgOyun/Assets/Images/İş-Sağliği-ve-Güvenliğinde-İnsan-Kaynaklari-Yönetimi@2x.jpg.meta
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-<<<<<<<< HEAD:IsgOyun/Assets/Images/is-sagligi-ve-guvenligi-nedir.png.meta
   cookieLightType: 0
 ========
->>>>>>>> main:IsgOyun/Assets/LeanTween/Examples/Textures/HorizontalGradient.png.meta
+>>>>>>>> main:IsgOyun/Assets/LeanTween/Examples/Textures/PowerUpStar.png.meta
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
@@ -97,8 +91,13 @@ TextureImporter:
     overridden: 0
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
+<<<<<<<< HEAD:IsgOyun/Assets/Images/İş-Sağliği-ve-Güvenliğinde-İnsan-Kaynaklari-Yönetimi@2x.jpg.meta
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
+========
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+>>>>>>>> main:IsgOyun/Assets/LeanTween/Examples/Textures/PowerUpStar.png.meta
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -108,13 +107,15 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-<<<<<<<< HEAD:IsgOyun/Assets/Images/is-sagligi-ve-guvenligi-nedir.png.meta
+<<<<<<<< HEAD:IsgOyun/Assets/Images/İş-Sağliği-ve-Güvenliğinde-İnsan-Kaynaklari-Yönetimi@2x.jpg.meta
     ignorePlatformSupport: 0
-========
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+========
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
-    buildTarget: Server
+    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -123,9 +124,9 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
->>>>>>>> main:IsgOyun/Assets/LeanTween/Examples/Textures/HorizontalGradient.png.meta
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+>>>>>>>> main:IsgOyun/Assets/LeanTween/Examples/Textures/PowerUpStar.png.meta
   spriteSheet:
     serializedVersion: 2
     sprites: []
@@ -133,28 +134,32 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
+<<<<<<<< HEAD:IsgOyun/Assets/Images/İş-Sağliği-ve-Güvenliğinde-İnsan-Kaynaklari-Yönetimi@2x.jpg.meta
     spriteCustomMetadata:
       entries: []
     nameFileIdTable: {}
   mipmapLimitGroupName: 
+========
+  spritePackingTag: 
+>>>>>>>> main:IsgOyun/Assets/LeanTween/Examples/Textures/PowerUpStar.png.meta
   pSDRemoveMatte: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-<<<<<<<< HEAD:IsgOyun/Assets/Images/is-sagligi-ve-guvenligi-nedir.png.meta
+<<<<<<<< HEAD:IsgOyun/Assets/Images/İş-Sağliği-ve-Güvenliğinde-İnsan-Kaynaklari-Yönetimi@2x.jpg.meta
 ========
 AssetOrigin:
   serializedVersion: 1
   productId: 3595
   packageName: LeanTween
   packageVersion: 2.51
-  assetPath: Assets/LeanTween/Examples/Textures/HorizontalGradient.png
+  assetPath: Assets/LeanTween/Examples/Textures/PowerUpStar.png
   uploadId: 469983
->>>>>>>> main:IsgOyun/Assets/LeanTween/Examples/Textures/HorizontalGradient.png.meta
+>>>>>>>> main:IsgOyun/Assets/LeanTween/Examples/Textures/PowerUpStar.png.meta
