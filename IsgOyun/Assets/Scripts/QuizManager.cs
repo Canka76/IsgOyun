@@ -132,6 +132,7 @@ public class QuizManager : MonoBehaviour
             if (healthP2 <= 0)
             {
                 TriggerDeathAnimation(player2Animator);
+                TriggerDanceAnimation(player1Animator);
                 return;
             }
 
@@ -149,6 +150,7 @@ public class QuizManager : MonoBehaviour
             if (healthP1 <= 0)
             {
                 TriggerDeathAnimation(player1Animator);
+                TriggerDanceAnimation(player2Animator);
                 return;
             }
 
@@ -162,7 +164,17 @@ public class QuizManager : MonoBehaviour
         if (oyuncu == 2 && !p2CevapVerdi) p2CevapVerdi = true;
     }
 }
+    void TriggerDanceAnimation(Animator playerAnimator)
+    {
+        if (playerAnimator != null)
+        {
+            playerAnimator.SetTrigger("Dance"); // Make sure your animator has a "Death" trigger
+            Debug.Log("Player Danced!");
+        }
 
+        // Stop further input and actions
+        enabled = false;
+    }
 void TriggerDeathAnimation(Animator playerAnimator)
 {
     if (playerAnimator != null)
