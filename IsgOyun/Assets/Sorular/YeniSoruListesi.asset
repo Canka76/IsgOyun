@@ -13,108 +13,172 @@ MonoBehaviour:
   m_Name: YeniSoruListesi
   m_EditorClassIdentifier: 
   sorular:
-  - soruMetni: bu bir soru mu? 1
+  - soruMetni: "\u0130\u015F Sa\u011Fl\u0131\u011F\u0131 ve G\xFCvenli\u011Fi (\u0130SG)
+      y\xF6netim sisteminin temel amac\u0131 nedir?"
     secenekler:
-    - "hay\u0131r"
-    - evet
-    - "fener \u015Fampi"
-    - gayim
+    - "\u0130\u015F Sa\u011Fl\u0131\u011F\u0131 ve G\xFCvenli\u011Fi (\u0130SG) y\xF6netim
+      sisteminin temel amac\u0131 nedir?"
+    - "B) \u0130\u015Fletmenin sadece yasal y\xFCk\xFCml\xFCl\xFCkleri yerine getirmesini
+      sa\u011Flamak"
+    - "C) \xC7al\u0131\u015Fan sa\u011Fl\u0131\u011F\u0131n\u0131 koruyarak i\u015Fyerindeki
+      tehlike ve riskleri en aza indirmek"
+    - "D) \u0130\u015Fyerindeki \xFCretim miktar\u0131n\u0131 art\u0131rmak"
+    dogruCevapIndex: 2
+  - soruMetni: "Riskin iki temel \xF6zelli\u011Fi nedir?"
+    secenekler:
+    - "A) Tehlikenin kayna\u011F\u0131 ve yay\u0131lma \u015Fekli"
+    - "B) Olma olas\u0131l\u0131\u011F\u0131 ve yarataca\u011F\u0131 etki"
+    - "C) \u0130\u015Fverenin sorumluluklar\u0131 ve i\u015F\xE7ilerin y\xFCk\xFCml\xFCl\xFCkleri"
+    - "D) \xC7al\u0131\u015Fan sa\u011Fl\u0131\u011F\u0131na etkisi ve tehlikenin
+      fiziksel boyutu"
     dogruCevapIndex: 1
-  - soruMetni: bu bir soru mu? 2
+  - soruMetni: "A\u015Fa\u011F\u0131dakilerden hangisi risk y\xF6netiminin bir faydas\u0131
+      de\u011Fildir?"
     secenekler:
-    - "hay\u0131r"
-    - evet
-    - "fener \u015Fampi"
-    - gayim
+    - "A) \u0130\u015F kazalar\u0131n\u0131n \xF6nlenmesi"
+    - "B) \xC7al\u0131\u015Fanlar\u0131n i\u015Ften \xE7\u0131kar\u0131lmas\u0131n\u0131n
+      kolayla\u015Fmas\u0131"
+    - "C) Verimlili\u011Fin art\u0131r\u0131lmas\u0131"
+    - "D) \u0130\u015F s\xFCreklili\u011Finin sa\u011Flanmas\u0131"
     dogruCevapIndex: 1
-  - soruMetni: bu bir soru mu? 3
+  - soruMetni: "Risk y\xF6netimi s\xFCrecinde a\u015Fa\u011F\u0131dakilerden hangisi
+      bir ad\u0131md\u0131r?"
     secenekler:
-    - "hay\u0131r"
-    - evet
-    - "fener \u015Fampi"
-    - gayim
+    - "A) \xC7al\u0131\u015Fanlara fazla mesai yapt\u0131rmak"
+    - B) Tehlikelerin belirlenmesi
+    - "C) \xDCretimi durdurmak"
+    - "D) \xC7al\u0131\u015Fanlar\u0131 bilgilendirmemek"
     dogruCevapIndex: 1
-  - soruMetni: bu bir soru mu?
+  - soruMetni: "6331 Say\u0131l\u0131 \u0130\u015F Sa\u011Fl\u0131\u011F\u0131 ve
+      G\xFCvenli\u011Fi Kanunu'na g\xF6re i\u015Fverenin y\xFCk\xFCml\xFCl\xFCklerinden
+      biri a\u015Fa\u011F\u0131dakilerden hangisidir?"
     secenekler:
-    - "hay\u0131r"
-    - evet
-    - "fener \u015Fampi"
-    - gayim
+    - "Risk de\u011Ferlendirmesi yapmak veya yapt\u0131rmak"
+    - "\xC7al\u0131\u015Fanlar\u0131n maa\u015Flar\u0131n\u0131 art\u0131rmak"
+    - "C) \xC7al\u0131\u015Fanlar\u0131 istedi\u011Fi gibi \xE7al\u0131\u015Ft\u0131rmak"
+    - "D) \u0130\u015F kazalar\u0131n\u0131 g\xF6z ard\u0131 etmek"
     dogruCevapIndex: 1
-  - soruMetni: bu bir soru mu?
+  - soruMetni: "Risk de\u011Ferlendirmesinin temel gerek\xE7elerinden biri a\u015Fa\u011F\u0131dakilerden
+      hangisidir?"
     secenekler:
-    - "hay\u0131r"
-    - evet
-    - "fener \u015Fampi"
-    - gayim
+    - "A) \u0130\u015F kazalar\u0131n\u0131 ve meslek hastal\u0131klar\u0131n\u0131
+      \xF6nlemek"
+    - "B) Sadece yasal zorunluluklar\u0131 yerine getirmek"
+    - "C) \xC7al\u0131\u015Fanlar\u0131 daha \xE7ok \xE7al\u0131\u015Ft\u0131rmak"
+    - "D) \u0130\u015Fletmenin kazanc\u0131n\u0131 art\u0131rmak"
+    dogruCevapIndex: 0
+  - soruMetni: "Tehlike ve risk aras\u0131ndaki temel fark nedir?"
+    secenekler:
+    - "A) Tehlike bireyler i\xE7in zararl\u0131 olan durumdur, risk ise tehlikenin
+      ger\xE7ekle\u015Fme olas\u0131l\u0131\u011F\u0131d\u0131r"
+    - "B) Risk her zaman \xF6nlenebilir, tehlike ise \xF6nlenemez"
+    - "C) Tehlike rastgele ortaya \xE7\u0131kar, risk ise kontrol alt\u0131na al\u0131nabilir"
+    - "D) Tehlike sadece do\u011Fal afetlerden kaynaklan\u0131r"
+    dogruCevapIndex: 0
+  - soruMetni: "A\u015Fa\u011F\u0131dakilerden hangisi fiziksel tehlike kaynaklar\u0131ndan
+      biridir?"
+    secenekler:
+    - "A) G\xFCr\xFClt\xFC"
+    - B) Stres
+    - C) Kimyasal gazlar
+    - "D) Ergonomik fakt\xF6rler"
+    dogruCevapIndex: 0
+  - soruMetni: '"Ramak kala olay" ne anlama gelir?'
+    secenekler:
+    - "A) Bir kazan\u0131n ger\xE7ekle\u015Fmeden \xF6nce fark edilip \xF6nlenmesi"
+    - "B) Kazan\u0131n hukuki s\xFCrecinin ba\u015Flamas\u0131"
+    - "C) \xC7al\u0131\u015Fanlar\u0131n i\u015F kazas\u0131 raporu doldurmas\u0131"
+    - "D) Sadece b\xFCy\xFCk kazalar\u0131n de\u011Ferlendirilmesi"
+    dogruCevapIndex: 0
+  - soruMetni: " \u0130\u015Fveren a\xE7\u0131s\u0131ndan risk y\xF6netiminin faydalar\u0131ndan
+      biri a\u015Fa\u011F\u0131dakilerden hangisidir?"
+    secenekler:
+    - "A) \u0130\u015F\xE7ilerin haklar\u0131n\u0131 s\u0131n\u0131rlamak"
+    - "B) \u0130\u015Fletmenin prestijini ve g\xFCvenilirli\u011Fini art\u0131rmak"
+    - "C) \xC7al\u0131\u015Fanlar\u0131n maa\u015Flar\u0131n\u0131 azaltmak"
+    - "D) \u0130\u015F g\xFCvenli\u011Fi \xF6nlemlerini g\xF6rmezden gelmek"
     dogruCevapIndex: 1
-  - soruMetni: bu bir soru mu?
+  - soruMetni: "A\u015Fa\u011F\u0131dakilerden hangisi risk y\xF6netimi s\xFCrecinin
+      bir par\xE7as\u0131d\u0131r?"
     secenekler:
-    - "hay\u0131r"
-    - evet
-    - "fener \u015Fampi"
-    - gayim
+    - A) Riskleri belirlemek
+    - "B) Riskleri g\xF6rmezden gelmek"
+    - "C) \xC7al\u0131\u015Fanlar\u0131n riskleri anlamas\u0131na izin vermemek"
+    - "D) Tehlikelerle ilgili hi\xE7bir \xF6nlem almamak"
+    dogruCevapIndex: 0
+  - soruMetni: "\u0130\u015F yerinde psikososyal tehlike fakt\xF6rlerinden biri a\u015Fa\u011F\u0131dakilerden
+      hangisidir?"
+    secenekler:
+    - "A) G\xFCr\xFClt\xFC"
+    - B) Stres ve mobbing
+    - C) Zehirli gazlar
+    - D) Kesici makineler
     dogruCevapIndex: 1
-  - soruMetni: bu bir soru mu?
+  - soruMetni: "A\u015Fa\u011F\u0131dakilerden hangisi mekanik tehlike kaynaklar\u0131ndan
+      biridir?"
     secenekler:
-    - "hay\u0131r"
-    - evet
-    - "fener \u015Fampi"
-    - gayim
+    - "A) Y\xFCksek s\u0131cakl\u0131k"
+    - "B) Yanl\u0131\u015F duru\u015F"
+    - C) Kesici makineler
+    - D) Kimyasal tozlar
     dogruCevapIndex: 1
-  - soruMetni: bu bir soru mu?
+  - soruMetni: "Risk de\u011Ferlendirmesi s\xFCrecinin ilk ad\u0131m\u0131 a\u015Fa\u011F\u0131dakilerden
+      hangisidir?"
     secenekler:
-    - "hay\u0131r"
-    - evet
-    - "fener \u015Fampi"
-    - gayim
+    - "A) Risk kontrol ad\u0131mlar\u0131n\u0131 belirlemek"
+    - B) Tehlikelerin belirlenmesi
+    - "C) Risk de\u011Ferlendirmesinin yenilenmesi"
+    - "D) Riskler hakk\u0131nda dok\xFCmantasyon haz\u0131rlamak"
     dogruCevapIndex: 1
-  - soruMetni: bu bir soru mu?
+  - soruMetni: " A\u015Fa\u011F\u0131dakilerden hangisi i\u015F sa\u011Fl\u0131\u011F\u0131
+      ve g\xFCvenli\u011Fi kapsam\u0131nda bir ergonomik tehlikedir?"
     secenekler:
-    - "hay\u0131r"
-    - evet
-    - "fener \u015Fampi"
-    - gayim
+    - "A) Elektrik ka\xE7a\u011F\u0131"
+    - "B) Yanl\u0131\u015F duru\u015F ve a\u011F\u0131r kald\u0131rma"
+    - "C) G\xFCr\xFClt\xFC kirlili\u011Fi"
+    - "D) Bakteri ve vir\xFCsler"
     dogruCevapIndex: 1
-  - soruMetni: bu bir soru mu?
+  - soruMetni: "\u0130\u015F sa\u011Fl\u0131\u011F\u0131 ve g\xFCvenli\u011Finde
+      \"kabul edilebilir risk seviyesi\" ne anlama gelir?"
     secenekler:
-    - "hay\u0131r"
-    - evet
-    - "fener \u015Fampi"
-    - gayim
+    - "A) Tehlikenin kesinlikle ortadan kald\u0131r\u0131lmas\u0131"
+    - "B) Kay\u0131p veya yaralanmaya neden olmayacak, yasal y\xFCk\xFCml\xFCl\xFCklere
+      uygun risk seviyesi"
+    - "C) \xC7al\u0131\u015Fanlar\u0131n risklere al\u0131\u015Fmas\u0131"
+    - "D) \u0130\u015Fverenin riskleri yok saymas\u0131"
     dogruCevapIndex: 1
-  - soruMetni: bu bir soru mu?
+  - soruMetni: "\u0130\u015F yerinde yetersiz havaland\u0131rma hangi risk t\xFCr\xFCne
+      girer?"
     secenekler:
-    - "hay\u0131r"
-    - evet
-    - "fener \u015Fampi"
-    - gayim
+    - A) Fiziksel risk
+    - B) Ergonomik risk
+    - C) Psikososyal risk
+    - "D) Yerel \xE7evresel risk"
+    dogruCevapIndex: 0
+  - soruMetni: "Risk y\xF6netiminin amac\u0131 a\u015Fa\u011F\u0131dakilerden hangisidir?"
+    secenekler:
+    - "A) Riskleri belirleyerek y\xF6netmek ve en aza indirmek"
+    - "B) Sadece kazalardan sonra \xF6nlem almak"
+    - "C) \xC7al\u0131\u015Fanlar\u0131n tehlikelerden haberdar olmamas\u0131n\u0131
+      sa\u011Flamak"
+    - "D) \u0130\u015F sa\u011Fl\u0131\u011F\u0131 ve g\xFCvenli\u011Fi kurallar\u0131n\u0131
+      esnetmek"
+    dogruCevapIndex: 0
+  - soruMetni: "A\u015Fa\u011F\u0131dakilerden hangisi risk de\u011Ferlendirme s\xFCrecinde
+      g\xF6z \xF6n\xFCnde bulundurulmas\u0131 gereken bir fakt\xF6rd\xFCr?"
+    secenekler:
+    - "A) \xC7al\u0131\u015Fanlar\u0131n vardiya saatleri"
+    - "B) \u0130\u015F yerindeki tehlikelerin belirlenmesi ve de\u011Ferlendirilmesi"
+    - "C) \u0130\u015Fverenin ekonomik kazan\xE7lar\u0131"
+    - "D) \xC7al\u0131\u015Fanlar\u0131n sosyal aktiviteleri"
     dogruCevapIndex: 1
-  - soruMetni: bu bir soru mu?
+  - soruMetni: "Risk y\xF6netiminde ISO 31000 standard\u0131n\u0131n amac\u0131 nedir?"
     secenekler:
-    - "hay\u0131r"
-    - evet
-    - "fener \u015Fampi"
-    - gayim
-    dogruCevapIndex: 1
-  - soruMetni: bu bir soru mu?
-    secenekler:
-    - "hay\u0131r"
-    - evet
-    - "fener \u015Fampi"
-    - gayim
-    dogruCevapIndex: 1
-  - soruMetni: bu bir soru mu?
-    secenekler:
-    - "hay\u0131r"
-    - evet
-    - "fener \u015Fampi"
-    - gayim
-    dogruCevapIndex: 1
-  - soruMetni: bu bir soru mu?
-    secenekler:
-    - "hay\u0131r"
-    - evet
-    - "fener \u015Fampi"
-    - gayim
+    - "A) \xC7al\u0131\u015Fanlar\u0131n fazla mesai yapmas\u0131n\u0131 sa\u011Flamak"
+    - "B) Risklerin tan\u0131mlanmas\u0131, de\u011Ferlendirilmesi ve kontrol alt\u0131na
+      al\u0131nmas\u0131 i\xE7in rehberlik sunmak"
+    - "C) \u0130\u015Fletmelerin sadece kendi i\xE7 politikalar\u0131na uygun hareket
+      etmesini sa\u011Flamak"
+    - "D) \xC7al\u0131\u015Fanlar\u0131n sa\u011Fl\u0131k sigortas\u0131n\u0131 zorunlu
+      k\u0131lmak"
     dogruCevapIndex: 1

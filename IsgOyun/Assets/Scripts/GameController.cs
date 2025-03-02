@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,9 +12,17 @@ public class GameController : MonoBehaviour
     private bool isGameOver = false;
     private bool isPaused = false;
 
+    private void OnEnable()
+    {
+        Time.timeScale = 1;
+    }
+
     public void FromPauseMenu()
     {
         pause_menu.active = false;
+        pause_menu.SetActive(!pause_menu.activeInHierarchy);
+        isPaused = !isPaused;
+        Time.timeScale = isPaused ? 0 : 1;
     }
 
     public void Exit()
@@ -22,7 +31,7 @@ public class GameController : MonoBehaviour
     }
     public void RestartGame()
     {
-        SceneManager.LoadScene("kosor");
+        SceneManager.LoadScene("Oyun");
     }
 
     private void Update()
