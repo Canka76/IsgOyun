@@ -17,9 +17,12 @@ public class QuizManager : MonoBehaviour
     public Animator player2Animator; // Player 2 Animator
 
     [SerializeField] private float damageAmount = 10f;
+    [SerializeField] private float correctAnswerDelay = 3f;
+
     [SerializeField,Range(0,1)] private float P1AnimSoundDelay = .55f;
     [SerializeField,Range(0,1)] private float P2AnimSoundDelay = .65f;
 
+    bool canSwitchQuestion = true;
 
     private int mevcutSoruIndex = 0;
     private int healthP1 = 100;
@@ -48,8 +51,9 @@ public class QuizManager : MonoBehaviour
 
             if (kalanSure <= 0)
             {
+                Debug.Log("Sure sifr");
                 zamanBitti = true;
-                SonrakiSoru();
+                StartCoroutine(ShowCorrectAnswerAndNextQuestion());
             }
         }
 
@@ -78,14 +82,18 @@ public class QuizManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Alpha4)) CevapKontrol(3, 2);
         }
 
-        if (p1CevapVerdi && p2CevapVerdi)
+        if (p1CevapVerdi && p2CevapVerdi && canSwitchQuestion)
         {
-            SonrakiSoru();
+            canSwitchQuestion = false;
+            Debug.Log("ikili cevap verdi");
+            StartCoroutine(ShowCorrectAnswerAndNextQuestion());
+            
         }
     }
 
     void YeniSoruGetir()
     {
+        Debug.Log("Soru Getir");
         if (healthP1 <= 0 || healthP2 <= 0)
         {
             Debug.Log("Oyun Bitti!");
@@ -106,7 +114,9 @@ public class QuizManager : MonoBehaviour
         p1CevapVerdi = false;
         p2CevapVerdi = false;
         zamanBitti = false;
+        canSwitchQuestion = true;
         kalanSure = 10f;
+        
     }
 
 
@@ -233,11 +243,23 @@ void TriggerDeathAnimation(Animator playerAnimator)
         LeanTween.scaleX(timeBar, newScaleX, 0.3f).setEase(LeanTweenType.easeOutQuad);
     }
 
+    IEnumerator ShowCorrectAnswerAndNextQuestion()
+    {
+        int correctIndex = soruListesi.sorular[mevcutSoruIndex].dogruCevapIndex;
+        Color originalColor = secenekButonlari[correctIndex].image.color;
+        secenekButonlari[correctIndex].image.color = new Color(0.59f, 1f, 0.53f); // #96FF87
+        yield return new WaitForSeconds(correctAnswerDelay);
+        secenekButonlari[correctIndex].image.color = originalColor;
+        kalanSure = 10f;
+        SonrakiSoru();
+        Debug.Log("calıştı rutin");
+    }
 
 
 
     void SonrakiSoru()
     {
+        Debug.Log("Sonraki soru");
         mevcutSoruIndex++;
         YeniSoruGetir();
     }

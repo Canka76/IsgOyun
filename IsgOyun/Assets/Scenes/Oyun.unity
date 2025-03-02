@@ -1848,6 +1848,7 @@ MonoBehaviour:
   player1Animator: {fileID: 1601171048}
   player2Animator: {fileID: 188484053}
   damageAmount: 10
+  correctAnswerDelay: 2
   P1AnimSoundDelay: 0.43
   P2AnimSoundDelay: 0.6
 --- !u!4 &1543367190
