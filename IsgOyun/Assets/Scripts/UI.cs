@@ -17,7 +17,7 @@ public class UI : MonoBehaviour
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("kosor");
+        SceneManager.LoadScene(1);
     }
 
     public void ToCredits()

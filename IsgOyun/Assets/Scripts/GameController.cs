@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
 
     public void FromPauseMenu()
     {
-        pause_menu.active = false;
+        
         pause_menu.SetActive(!pause_menu.activeInHierarchy);
         isPaused = !isPaused;
         Time.timeScale = isPaused ? 0 : 1;
@@ -31,7 +31,7 @@ public class GameController : MonoBehaviour
     }
     public void RestartGame()
     {
-        SceneManager.LoadScene(sceneBuildIndex: SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(1);
     }
 
     private void Update()

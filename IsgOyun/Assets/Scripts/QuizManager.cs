@@ -39,6 +39,9 @@ public class QuizManager : MonoBehaviour
 
     void Start()
     {
+        healthBarP1.gameObject.SetActive(true);
+        healthBarP2.gameObject.SetActive(true);
+
         winnerPanel.SetActive(false);
         canPunch = true;
         SoundManager.Instance.RandomMusic();
@@ -50,7 +53,7 @@ public class QuizManager : MonoBehaviour
         if (!zamanBitti)
         {
             kalanSure -= Time.deltaTime;
-            zamanlayiciText.text = "Süre: " + Mathf.Ceil(kalanSure);
+            zamanlayiciText.text = "" + Mathf.Ceil(kalanSure);
 
             // Update the time bar scale dynamically
             timeBar.transform.localScale = new Vector3(kalanSure / 10f, 1, 1);
@@ -154,6 +157,7 @@ public class QuizManager : MonoBehaviour
 
             if (healthP2 <= 0)
             {
+                healthBarP2.gameObject.SetActive(false);
                 SetWinnerPanel(1);
                 TriggerDeathAnimation(player2Animator);
                 TriggerDanceAnimation(player1Animator);
@@ -173,6 +177,7 @@ public class QuizManager : MonoBehaviour
 
             if (healthP1 <= 0)
             {
+                healthBarP1.gameObject.SetActive(false);
                 SetWinnerPanel(2);
                 TriggerDeathAnimation(player1Animator);
                 TriggerDanceAnimation(player2Animator);
