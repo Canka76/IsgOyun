@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &137365995 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8172296329548123734, guid: afd71100605c1c746ac70a5f74c9fd77, type: 3}
+  m_PrefabInstance: {fileID: 350094208}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &188484052 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 34b237c0ead23ba4f9a765ecc44fb058, type: 3}
@@ -969,7 +980,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8172296329548123734, guid: afd71100605c1c746ac70a5f74c9fd77, type: 3}
       propertyPath: m_text
-      value: 2
+      value: '?'
       objectReference: {fileID: 0}
     - target: {fileID: 8172296329548123734, guid: afd71100605c1c746ac70a5f74c9fd77, type: 3}
       propertyPath: m_fontAsset
@@ -2327,6 +2338,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2641292408282598613, guid: ea83b5e4066c04c45ba56034751b1a61, type: 3}
   m_PrefabInstance: {fileID: 8284645958598264096}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1317397629 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 160082685003345958, guid: afd71100605c1c746ac70a5f74c9fd77, type: 3}
+  m_PrefabInstance: {fileID: 350094208}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1519384557 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5468917066234883576, guid: afd71100605c1c746ac70a5f74c9fd77, type: 3}
@@ -2374,7 +2390,11 @@ MonoBehaviour:
   - {fileID: 2039561714}
   player1Animator: {fileID: 1601171048}
   player2Animator: {fileID: 188484053}
+  winnerPanel: {fileID: 1317397629}
+  winnerText: {fileID: 137365995}
+  pauseMenu: {fileID: 1585999839}
   damageAmount: 10
+  correctAnswerDelay: 3
   P1AnimSoundDelay: 0.43
   P2AnimSoundDelay: 0.6
 --- !u!4 &1543367190
@@ -2516,6 +2536,11 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 122375119873516975, guid: 8abe7aadf2728b3488d16ca4e6257979, type: 3}
   m_PrefabInstance: {fileID: 1545510542}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1585999839 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3340863352345306350, guid: afd71100605c1c746ac70a5f74c9fd77, type: 3}
+  m_PrefabInstance: {fileID: 350094208}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1601171047 stripped
 GameObject:
@@ -3339,7 +3364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 729771023188686947, guid: a44c76a83546d7144990d4a80948bb91, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 25.2703
+      value: 25.270302
       objectReference: {fileID: 0}
     - target: {fileID: 729771023188686947, guid: a44c76a83546d7144990d4a80948bb91, type: 3}
       propertyPath: m_LocalPosition.x
