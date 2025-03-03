@@ -31,7 +31,7 @@ public class GameController : MonoBehaviour
     }
     public void RestartGame()
     {
-        SceneManager.LoadScene("Oyun");
+        SceneManager.LoadScene(sceneBuildIndex: SceneManager.GetActiveScene().buildIndex);
     }
 
     private void Update()
