@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine.Serialization;
 
 public class QuizManager : MonoBehaviour
@@ -101,15 +102,17 @@ public class QuizManager : MonoBehaviour
         }
 
         // Pick a random question index
-        int randomIndex = Random.Range(0, soruListesi.sorular.Count);
+        mevcutSoruIndex = Random.Range(0, soruListesi.sorular.Count);
 
-        Soru aktifSoru = soruListesi.sorular[randomIndex];
+        Soru aktifSoru = soruListesi.sorular[mevcutSoruIndex];
         soruText.text = aktifSoru.soruMetni;
 
         for (int i = 0; i < secenekButonlari.Length; i++)
         {
             secenekButonlari[i].GetComponentInChildren<TMP_Text>().text = aktifSoru.secenekler[i];
         }
+        
+        Debug.LogWarning($"Yeni soru Getir {aktifSoru.dogruCevapIndex}");
 
         p1CevapVerdi = false;
         p2CevapVerdi = false;
@@ -123,6 +126,7 @@ public class QuizManager : MonoBehaviour
     void CevapKontrol(int secilenIndex, int oyuncu)
 {
     bool dogruMu = secilenIndex == soruListesi.sorular[mevcutSoruIndex].dogruCevapIndex;
+    Debug.LogWarning($"mevcut index {mevcutSoruIndex} ,DogruMu {dogruMu}, index {soruListesi.sorular[mevcutSoruIndex].dogruCevapIndex}, secilen {secilenIndex}, oyuncu {oyuncu}  ");
 
     if (dogruMu)
     {
@@ -130,7 +134,7 @@ public class QuizManager : MonoBehaviour
         float elapsedTime = 10f - kalanSure; // Time already passed
         float damageMultiplier = (elapsedTime < sectionLength) ? 2f : (elapsedTime < 2 * sectionLength) ? 1f : 0.5f;
 
-        int damage = Mathf.RoundToInt(damageAmount * damageMultiplier);
+        int damage = Mathf.RoundToInt(damageAmount * damageMultiplier );
 
         if (oyuncu == 1 && !p1CevapVerdi)
         {
@@ -245,6 +249,7 @@ void TriggerDeathAnimation(Animator playerAnimator)
 
     IEnumerator ShowCorrectAnswerAndNextQuestion()
     {
+        kalanSure = 10f;
         int correctIndex = soruListesi.sorular[mevcutSoruIndex].dogruCevapIndex;
         Color originalColor = secenekButonlari[correctIndex].image.color;
         secenekButonlari[correctIndex].image.color = new Color(0.59f, 1f, 0.53f); // #96FF87
@@ -252,7 +257,7 @@ void TriggerDeathAnimation(Animator playerAnimator)
         secenekButonlari[correctIndex].image.color = originalColor;
         kalanSure = 10f;
         SonrakiSoru();
-        Debug.Log("calıştı rutin");
+        Debug.Log("yesil");
     }
 
 
