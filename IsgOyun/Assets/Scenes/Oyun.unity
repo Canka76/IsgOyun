@@ -2062,7 +2062,6 @@ GameObject:
   - component: {fileID: 1543367189}
   - component: {fileID: 1543367191}
   - component: {fileID: 1543367192}
-  - component: {fileID: 1543367193}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2096,7 +2095,7 @@ MonoBehaviour:
   player1Animator: {fileID: 1601171048}
   player2Animator: {fileID: 188484053}
   damageAmount: 10
-  correctAnswerDelay: 2
+  correctAnswerDelay: 3
   P1AnimSoundDelay: 0.43
   P2AnimSoundDelay: 0.6
 --- !u!4 &1543367190
@@ -2142,22 +2141,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   credit_panel: {fileID: 0}
---- !u!114 &1543367193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1543367188}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a1841ce0e2a3fa4fb07a3224f076c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pause_menu: {fileID: 249961857}
-  winner_menu: {fileID: 766178712}
-  winner_number: {fileID: 1487340085}
-  uiMenu: {fileID: 249961857}
 --- !u!1 &1601171047 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7e715b316fa70944bb4e170bc7a51d0e, type: 3}

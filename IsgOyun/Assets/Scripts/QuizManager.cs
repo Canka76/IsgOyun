@@ -69,18 +69,18 @@ public class QuizManager : MonoBehaviour
     {
         if (!p1CevapVerdi)
         {
-            if (Input.GetKeyDown(KeyCode.W)) CevapKontrol(0, 1);
-            if (Input.GetKeyDown(KeyCode.A)) CevapKontrol(1, 1);
-            if (Input.GetKeyDown(KeyCode.S)) CevapKontrol(2, 1);
-            if (Input.GetKeyDown(KeyCode.D)) CevapKontrol(3, 1);
+            if (Input.GetKeyDown(KeyCode.Alpha1)) CevapKontrol(0, 1);
+            if (Input.GetKeyDown(KeyCode.Alpha2)) CevapKontrol(1, 1);
+            if (Input.GetKeyDown(KeyCode.Alpha3)) CevapKontrol(2, 1);
+            if (Input.GetKeyDown(KeyCode.Alpha4)) CevapKontrol(3, 1);
         }
 
         if (!p2CevapVerdi)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1)) CevapKontrol(0, 2);
-            if (Input.GetKeyDown(KeyCode.Alpha2)) CevapKontrol(1, 2);
-            if (Input.GetKeyDown(KeyCode.Alpha3)) CevapKontrol(2, 2);
-            if (Input.GetKeyDown(KeyCode.Alpha4)) CevapKontrol(3, 2);
+            if (Input.GetKeyDown(KeyCode.Alpha7)) CevapKontrol(0, 2);
+            if (Input.GetKeyDown(KeyCode.Alpha8)) CevapKontrol(1, 2);
+            if (Input.GetKeyDown(KeyCode.Alpha9)) CevapKontrol(2, 2);
+            if (Input.GetKeyDown(KeyCode.Alpha0)) CevapKontrol(3, 2);
         }
 
         if (p1CevapVerdi && p2CevapVerdi && canSwitchQuestion)
