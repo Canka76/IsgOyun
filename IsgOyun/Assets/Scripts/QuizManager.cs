@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine.Serialization;
 
 public class QuizManager : MonoBehaviour
@@ -15,13 +16,16 @@ public class QuizManager : MonoBehaviour
     public Button[] secenekButonlari;    
     public Animator player1Animator; // Player 1 Animator
     public Animator player2Animator; // Player 2 Animator
-
+    public GameObject winnerPanel;
+    public TMP_Text winnerText;
+    public GameObject pauseMenu;
     [SerializeField] private float damageAmount = 10f;
     [SerializeField] private float correctAnswerDelay = 3f;
 
     [SerializeField,Range(0,1)] private float P1AnimSoundDelay = .55f;
     [SerializeField,Range(0,1)] private float P2AnimSoundDelay = .65f;
 
+    bool canPunch = true;
     bool canSwitchQuestion = true;
 
     private int mevcutSoruIndex = 0;
@@ -35,6 +39,8 @@ public class QuizManager : MonoBehaviour
 
     void Start()
     {
+        winnerPanel.SetActive(false);
+        canPunch = true;
         SoundManager.Instance.RandomMusic();
         YeniSoruGetir();
     }
@@ -57,7 +63,11 @@ public class QuizManager : MonoBehaviour
             }
         }
 
-        KlavyeGirisKontrol();
+        if (canPunch)
+        {
+            KlavyeGirisKontrol();
+        }
+        
     }
 
     
@@ -68,18 +78,18 @@ public class QuizManager : MonoBehaviour
     {
         if (!p1CevapVerdi)
         {
-            if (Input.GetKeyDown(KeyCode.W)) CevapKontrol(0, 1);
-            if (Input.GetKeyDown(KeyCode.A)) CevapKontrol(1, 1);
-            if (Input.GetKeyDown(KeyCode.S)) CevapKontrol(2, 1);
-            if (Input.GetKeyDown(KeyCode.D)) CevapKontrol(3, 1);
+            if (Input.GetKeyDown(KeyCode.Alpha1)) CevapKontrol(0, 1);
+            if (Input.GetKeyDown(KeyCode.Alpha2)) CevapKontrol(1, 1);
+            if (Input.GetKeyDown(KeyCode.Alpha3)) CevapKontrol(2, 1);
+            if (Input.GetKeyDown(KeyCode.Alpha4)) CevapKontrol(3, 1);
         }
 
         if (!p2CevapVerdi)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1)) CevapKontrol(0, 2);
-            if (Input.GetKeyDown(KeyCode.Alpha2)) CevapKontrol(1, 2);
-            if (Input.GetKeyDown(KeyCode.Alpha3)) CevapKontrol(2, 2);
-            if (Input.GetKeyDown(KeyCode.Alpha4)) CevapKontrol(3, 2);
+            if (Input.GetKeyDown(KeyCode.Alpha7)) CevapKontrol(0, 2);
+            if (Input.GetKeyDown(KeyCode.Alpha8)) CevapKontrol(1, 2);
+            if (Input.GetKeyDown(KeyCode.Alpha9)) CevapKontrol(2, 2);
+            if (Input.GetKeyDown(KeyCode.Alpha0)) CevapKontrol(3, 2);
         }
 
         if (p1CevapVerdi && p2CevapVerdi && canSwitchQuestion)
@@ -101,15 +111,17 @@ public class QuizManager : MonoBehaviour
         }
 
         // Pick a random question index
-        int randomIndex = Random.Range(0, soruListesi.sorular.Count);
+        mevcutSoruIndex = Random.Range(0, soruListesi.sorular.Count);
 
-        Soru aktifSoru = soruListesi.sorular[randomIndex];
+        Soru aktifSoru = soruListesi.sorular[mevcutSoruIndex];
         soruText.text = aktifSoru.soruMetni;
 
         for (int i = 0; i < secenekButonlari.Length; i++)
         {
             secenekButonlari[i].GetComponentInChildren<TMP_Text>().text = aktifSoru.secenekler[i];
         }
+        
+        Debug.LogWarning($"Yeni soru Getir {aktifSoru.dogruCevapIndex}");
 
         p1CevapVerdi = false;
         p2CevapVerdi = false;
@@ -123,6 +135,7 @@ public class QuizManager : MonoBehaviour
     void CevapKontrol(int secilenIndex, int oyuncu)
 {
     bool dogruMu = secilenIndex == soruListesi.sorular[mevcutSoruIndex].dogruCevapIndex;
+    Debug.LogWarning($"mevcut index {mevcutSoruIndex} ,DogruMu {dogruMu}, index {soruListesi.sorular[mevcutSoruIndex].dogruCevapIndex}, secilen {secilenIndex}, oyuncu {oyuncu}  ");
 
     if (dogruMu)
     {
@@ -130,7 +143,7 @@ public class QuizManager : MonoBehaviour
         float elapsedTime = 10f - kalanSure; // Time already passed
         float damageMultiplier = (elapsedTime < sectionLength) ? 2f : (elapsedTime < 2 * sectionLength) ? 1f : 0.5f;
 
-        int damage = Mathf.RoundToInt(damageAmount * damageMultiplier);
+        int damage = Mathf.RoundToInt(damageAmount * damageMultiplier );
 
         if (oyuncu == 1 && !p1CevapVerdi)
         {
@@ -141,6 +154,7 @@ public class QuizManager : MonoBehaviour
 
             if (healthP2 <= 0)
             {
+                SetWinnerPanel(1);
                 TriggerDeathAnimation(player2Animator);
                 TriggerDanceAnimation(player1Animator);
                 return;
@@ -159,6 +173,7 @@ public class QuizManager : MonoBehaviour
 
             if (healthP1 <= 0)
             {
+                SetWinnerPanel(2);
                 TriggerDeathAnimation(player1Animator);
                 TriggerDanceAnimation(player2Animator);
                 return;
@@ -181,9 +196,7 @@ public class QuizManager : MonoBehaviour
             playerAnimator.SetTrigger("Dance"); 
             Debug.Log("Player Danced!");
         }
-
-        // Stop further input and actions
-        enabled = false;
+        
     }
 void TriggerDeathAnimation(Animator playerAnimator)
 {
@@ -193,9 +206,28 @@ void TriggerDeathAnimation(Animator playerAnimator)
         Debug.Log("Player Died!");
     }
 
-    // Stop further input and actions
-    enabled = false;
+    canPunch = false;
+    winnerPanel.SetActive(true);
 }
+
+
+    void SetWinnerPanel(int a)
+    {
+        winnerPanel.SetActive(true);
+        if (winnerText != null)
+        {
+            winnerText.text = a == 1 ? "1" : "2";
+        }
+
+        StartCoroutine(SetPauseMenu());
+    }
+
+    IEnumerator SetPauseMenu()
+    {
+        yield return new WaitForSeconds(10);
+        pauseMenu.SetActive(true);
+    }
+    
 
     private IEnumerator PlaySfxAfterDelay(float delay)
     {
@@ -245,6 +277,7 @@ void TriggerDeathAnimation(Animator playerAnimator)
 
     IEnumerator ShowCorrectAnswerAndNextQuestion()
     {
+        kalanSure = 10f;
         int correctIndex = soruListesi.sorular[mevcutSoruIndex].dogruCevapIndex;
         Color originalColor = secenekButonlari[correctIndex].image.color;
         secenekButonlari[correctIndex].image.color = new Color(0.59f, 1f, 0.53f); // #96FF87
@@ -252,7 +285,7 @@ void TriggerDeathAnimation(Animator playerAnimator)
         secenekButonlari[correctIndex].image.color = originalColor;
         kalanSure = 10f;
         SonrakiSoru();
-        Debug.Log("calıştı rutin");
+        Debug.Log("yesil");
     }
 
 
