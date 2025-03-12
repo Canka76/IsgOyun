@@ -203,19 +203,7 @@ public class QuizManager : MonoBehaviour
         }
         
     }
-void TriggerDeathAnimation(Animator playerAnimator)
-{
-    if (playerAnimator != null)
-    {
-        playerAnimator.SetTrigger("Death"); // Make sure your animator has a "Death" trigger
-        Debug.Log("Player Died!");
-    }
-
-    canPunch = false;
-    winnerPanel.SetActive(true);
-}
-
-
+    
     void SetWinnerPanel(int a)
     {
         winnerPanel.SetActive(true);
@@ -229,8 +217,26 @@ void TriggerDeathAnimation(Animator playerAnimator)
 
     IEnumerator SetPauseMenu()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(45);
         pauseMenu.SetActive(true);
+    }
+    
+    void TriggerDeathAnimation(Animator playerAnimator)
+    {
+        if (playerAnimator != null)
+        {
+            StartCoroutine(DieAfterDelay(0.65f, playerAnimator)); 
+            Debug.Log("Player Died!");
+        }
+
+        canPunch = false;
+        winnerPanel.SetActive(true);
+    }
+
+    private IEnumerator DieAfterDelay(float delay, Animator playerAnimator)
+    {
+        yield return new WaitForSeconds(delay);
+        playerAnimator.SetTrigger("Death");
     }
     
 
