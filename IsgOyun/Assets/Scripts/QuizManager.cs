@@ -39,6 +39,9 @@ public class QuizManager : MonoBehaviour
 
     void Start()
     {
+        healthBarP1.gameObject.SetActive(true);
+        healthBarP2.gameObject.SetActive(true);
+
         winnerPanel.SetActive(false);
         canPunch = true;
         SoundManager.Instance.RandomMusic();
@@ -50,7 +53,7 @@ public class QuizManager : MonoBehaviour
         if (!zamanBitti)
         {
             kalanSure -= Time.deltaTime;
-            zamanlayiciText.text = "Süre: " + Mathf.Ceil(kalanSure);
+            zamanlayiciText.text = "" + Mathf.Ceil(kalanSure);
 
             // Update the time bar scale dynamically
             timeBar.transform.localScale = new Vector3(kalanSure / 10f, 1, 1);
@@ -154,6 +157,7 @@ public class QuizManager : MonoBehaviour
 
             if (healthP2 <= 0)
             {
+                healthBarP2.gameObject.SetActive(false);
                 SetWinnerPanel(1);
                 TriggerDeathAnimation(player2Animator);
                 TriggerDanceAnimation(player1Animator);
@@ -173,6 +177,7 @@ public class QuizManager : MonoBehaviour
 
             if (healthP1 <= 0)
             {
+                healthBarP1.gameObject.SetActive(false);
                 SetWinnerPanel(2);
                 TriggerDeathAnimation(player1Animator);
                 TriggerDanceAnimation(player2Animator);
@@ -198,19 +203,7 @@ public class QuizManager : MonoBehaviour
         }
         
     }
-void TriggerDeathAnimation(Animator playerAnimator)
-{
-    if (playerAnimator != null)
-    {
-        playerAnimator.SetTrigger("Death"); // Make sure your animator has a "Death" trigger
-        Debug.Log("Player Died!");
-    }
-
-    canPunch = false;
-    winnerPanel.SetActive(true);
-}
-
-
+    
     void SetWinnerPanel(int a)
     {
         winnerPanel.SetActive(true);
@@ -224,8 +217,26 @@ void TriggerDeathAnimation(Animator playerAnimator)
 
     IEnumerator SetPauseMenu()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(45);
         pauseMenu.SetActive(true);
+    }
+    
+    void TriggerDeathAnimation(Animator playerAnimator)
+    {
+        if (playerAnimator != null)
+        {
+            StartCoroutine(DieAfterDelay(0.65f, playerAnimator)); 
+            Debug.Log("Player Died!");
+        }
+
+        canPunch = false;
+        winnerPanel.SetActive(true);
+    }
+
+    private IEnumerator DieAfterDelay(float delay, Animator playerAnimator)
+    {
+        yield return new WaitForSeconds(delay);
+        playerAnimator.SetTrigger("Death");
     }
     
 
